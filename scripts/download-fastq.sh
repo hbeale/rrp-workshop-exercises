@@ -46,3 +46,10 @@ fi
 # Count the lines in the R2 file
 echo "The number of lines in $fastq_R2 is:"
 gunzip -c ${fastq_DEST}/${fastq_R2} | wc -l 
+
+fastp \
+    --in1 ${fastq_DEST}/${fastq_R1} \
+    --in2 ${fastq_DEST}/${fastq_R2} \
+    --out1 $TRIMMED_DIR/${fastq_R1} \
+    --out2 $TRIMMED_DIR/${fastq_R2} \
+    --html "$REPORTS_DIR/${STUDY_ID}_report.html"
