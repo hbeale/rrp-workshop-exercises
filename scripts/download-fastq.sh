@@ -21,7 +21,7 @@ REPORTS_DIR="../reports/fastp"
 # Create directory to hold FASTQ files from this project
 mkdir -p $fastq_DEST $TRIMMED_DIR $REPORTS_DIR
 
-if [ ! -f ${fastq_DEST}/${fastq_R1} ]; then
+if [ ! -e ${fastq_DEST}/${fastq_R1} ]; then
     # Download the R1 file
     echo ${fastq_URL}/${fastq_R1}
     curl -O ${fastq_URL}/${fastq_R1}
@@ -34,7 +34,7 @@ fi
 echo "The number of lines in $fastq_R1 is:"
 gunzip -c ${fastq_DEST}/${fastq_R1} | wc -l 
 
-if [ ! -f ${fastq_DEST}/${fastq_R2} ]; then
+if [ ! -e ${fastq_DEST}/${fastq_R2} ]; then
     # Download the R2 file
     curl -O ${fastq_URL}/${fastq_R2}
 
